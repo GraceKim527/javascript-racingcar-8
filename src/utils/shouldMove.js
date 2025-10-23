@@ -5,7 +5,9 @@
 
 import { MissionUtils } from "@woowacourse/mission-utils";
 
+const MOVE_THRESHOLD = 4;
+
 export function shouldMove() {
   const number = MissionUtils.Random.pickNumberInRange(0, 9);
-  return number >= 4;
+  return number >= MOVE_THRESHOLD;
 }
