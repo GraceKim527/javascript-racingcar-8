@@ -1,9 +1,14 @@
-import { MissionUtils } from "@woowacourse/mission-utils";
+import { getCarNames } from "./input/getCarNames.js";
+import { validateCarNames } from "./input/validateCarNames.js";
 
 class App {
   async run() {
-    const number = MissionUtils.Random.pickNumberInRange(0, 9);
-    console.log(number);
+    try {
+      const carNames = await getCarNames();
+      validateCarNames(carNames);
+    } catch (error) {
+      console.error(error.message);
+    }
   }
 }
 
