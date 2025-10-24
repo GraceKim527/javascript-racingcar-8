@@ -13,6 +13,10 @@ export function validateCarNames(carNames) {
   if (carNames.some((name) => name.trim().length > 5)) {
     throw new Error("[ERROR] 자동차 이름은 5자 이하만 가능합니다.");
   }
+
+  if (carNames.some((name) => carNames.filter((n) => n === name).length > 1)) {
+    throw new Error("[ERROR] 자동차 이름은 중복될 수 없습니다.");
+  }
   const invalidName = carNames.find((name) => !/^[a-zA-Z]+$/.test(name.trim()));
   if (invalidName) {
     throw new Error("[ERROR] 자동차 이름은 영문 알파벳만 가능합니다");
